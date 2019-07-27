@@ -1,0 +1,21 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: home.njk
+permalink: /tags/{{ tag }}/
+---
+<h1 class="title-page">#{{ tag }}</h1>
+
+{% set postslist = collections[tag] %}
+{% include "postslist.njk" %}
+
+<h2><a href="{{ '/tags/' | url }}">All tags</a></h2>
