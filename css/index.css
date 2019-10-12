@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  line-height: 1.4;
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: 1rem auto;
+}
+
+a {
+  color: DodgerBlue;
+  text-decoration: none;
+}
+
+main {
+  margin: 3rem 0;
+}
+
+.nav-item-active a {
+  color: MidnightBlue;
+}
+
+.tag {
+  color: DeepPink;
+}
+
+time {
+  font-weight: normal;
+}
+
+p img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+nav h2,
+.title-page {
+  font-variant: small-caps;
+  font-weight: normal;
+}

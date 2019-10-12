@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://pioug.github.io/blog/posts/hello-world/</loc>
+    <lastmod>2019-07-09</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pioug.github.io/blog/posts/migrate-github-actions-from-hcl-to-yaml-syntax/</loc>
+    <lastmod>2019-10-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pioug.github.io/blog/about/</loc>
+    <lastmod>2019-10-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pioug.github.io/blog/</loc>
+    <lastmod>2019-10-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pioug.github.io/blog/tags/webdev/</loc>
+    <lastmod>2019-10-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pioug.github.io/blog/tags/</loc>
+    <lastmod>2019-10-12</lastmod>
+  </url>
+</urlset>

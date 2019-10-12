@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>@pioug/blog</title>
+	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	<link href="https://pioug.github.io/feed/feed.xml" rel="self"/>
+	<link href="https://pioug.github.io/"/>
+	<updated>2019-10-12T13:31:38+00:00</updated>
+	<id>https://pioug.github.io/</id>
+	<author>
+		<name></name>
+		<email></email>
+	</author>
+	
+	<entry>
+		<title>Hello World!</title>
+		<link href="https://pioug.github.io/blog/posts/hello-world/"/>
+		<updated>2019-07-09T13:23:59+00:00</updated>
+		<id>https://pioug.github.io/blog/posts/hello-world/</id>
+		<content type="html">&lt;h1 id=&quot;proof-of-concept&quot;&gt;Proof of concept &lt;a class=&quot;direct-link&quot; href=&quot;#proof-of-concept&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The main idea is creating a static blog &lt;strong&gt;with 11ty&lt;/strong&gt;, hosted &lt;strong&gt;on GitHub Pages&lt;/strong&gt;, deployed &lt;strong&gt;via GitHub Action&lt;/strong&gt;, editable &lt;strong&gt;with GitHub Issues&lt;/strong&gt;. See the repository &lt;a href=&quot;https://github.com/pioug/blog&quot;&gt;https://github.com/pioug/blog&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow &lt;a class=&quot;direct-link&quot; href=&quot;#workflow&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create (or edit) an issue in the GitHub repository.&lt;/li&gt;
+&lt;li&gt;GitHub Actions receives an &lt;code&gt;issues&lt;/code&gt; event.&lt;/li&gt;
+&lt;li&gt;A workflow fetches all issues in the repository using the GraphQL API of GitHub then uses Eleventy to compile the Markdown files using the body of the issues. The front matter is built from the title, tags and creation date of the issues.&lt;/li&gt;
+&lt;li&gt;Another workflow git-commits and git-pushes the build folder to the GitHub Pages branch.&lt;/li&gt;
+&lt;li&gt;GitHub Pages assets are automatically refreshed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;why&quot;&gt;Why &lt;a class=&quot;direct-link&quot; href=&quot;#why&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Reuse the label system to manage the post tags (easy to assign, rename on GitHub).&lt;/li&gt;
+&lt;li&gt;Articles are updated automatically as soon as I finish editing the corresponding issues.&lt;/li&gt;
+&lt;li&gt;Image upload is simple as copy-pasting an image on GitHub&lt;/li&gt;
+&lt;li&gt;No web server, no file bucket, no CDN to manage.&lt;/li&gt;
+&lt;li&gt;The articles are editable in the browser.&lt;/li&gt;
+&lt;li&gt;Bonus: No vendor lock-in? I feel like I could easily change the Docker/scripting part (used by GH Actions) or the hosting (S3 + CF) or the static site generator or without too much trouble. I can always return to markdown files if GitHub issues are a bad idea.&lt;/li&gt;
+&lt;li&gt;Bonus: Giving editing permissions could be as simple as giving adding a collaborator to the repository.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;how&quot;&gt;How &lt;a class=&quot;direct-link&quot; href=&quot;#how&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Start from &lt;a href=&quot;https://github.com/11ty/eleventy-base-blog&quot;&gt;https://github.com/11ty/eleventy-base-blog&lt;/a&gt; 🐣&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Pull issues via the GraphQL API 💥 &lt;a href=&quot;https://github.com/pioug/blog/blob/master/gulpfile.js#L9&quot;&gt;https://github.com/pioug/blog/blob/master/gulpfile.js#L9&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Deploy static assets in workflows 👨‍🚀 &lt;a href=&quot;https://github.com/pioug/blog/blob/master/.github/main.workflow&quot;&gt;https://github.com/pioug/blog/blob/master/.github/main.workflow&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Run updates via GitHub Actions 🤖 &lt;a href=&quot;https://github.com/JamesIves/github-pages-deploy-action&quot;&gt;https://github.com/JamesIves/github-pages-deploy-action&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;test&quot;&gt;Test &lt;a class=&quot;direct-link&quot; href=&quot;#test&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Support code snippet 👨‍💻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Verify nice markdown support&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Include image uploaded via GitHub 🎆&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/3654180/61991568-8381bc00-b084-11e9-966c-58c9117989fe.png&quot; alt=&quot;Totakeke&quot;&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Migrate GitHub Actions from HCL to YAML syntax</title>
+		<link href="https://pioug.github.io/blog/posts/migrate-github-actions-from-hcl-to-yaml-syntax/"/>
+		<updated>2019-10-12T13:31:38+00:00</updated>
+		<id>https://pioug.github.io/blog/posts/migrate-github-actions-from-hcl-to-yaml-syntax/</id>
+		<content type="html">&lt;p&gt;Testing the new YAML syntax 💨&lt;/p&gt;
+</content>
+	</entry>
+</feed>

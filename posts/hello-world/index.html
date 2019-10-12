@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <meta name="description" content="Proof of concept The main idea is creating a static blog with 11ty, hosted on GitHub Pages, deployed via GitHub Action, editable with GitHub Issues. See the repository https://github.com/pioug/blog. Workflow...">
+    <link rel="stylesheet" href="/blog/css/index.css">
+    <link rel="stylesheet" href="/blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/blog/feed/feed.xml" type="application/atom+xml" title="@pioug/blog">
+  </head>
+  <body>
+    <header>
+      <h2><a href="/blog/">@pioug/blog</a></h2>
+    </header>
+
+    <main>
+      <h1 class="title-page">Hello World!</h1>
+
+<h3><time datetime="2019-07-09">09 Jul 2019</time></h3>
+
+<div>
+
+  <a href="/blog/tags/webdev/" class="tag">#webdev</a>
+</div>
+
+<h1 id="proof-of-concept">Proof of concept <a class="direct-link" href="#proof-of-concept" aria-hidden="true">#</a></h1>
+<p>The main idea is creating a static blog <strong>with 11ty</strong>, hosted <strong>on GitHub Pages</strong>, deployed <strong>via GitHub Action</strong>, editable <strong>with GitHub Issues</strong>. See the repository <a href="https://github.com/pioug/blog">https://github.com/pioug/blog</a>.</p>
+<h2 id="workflow">Workflow <a class="direct-link" href="#workflow" aria-hidden="true">#</a></h2>
+<ol>
+<li>Create (or edit) an issue in the GitHub repository.</li>
+<li>GitHub Actions receives an <code>issues</code> event.</li>
+<li>A workflow fetches all issues in the repository using the GraphQL API of GitHub then uses Eleventy to compile the Markdown files using the body of the issues. The front matter is built from the title, tags and creation date of the issues.</li>
+<li>Another workflow git-commits and git-pushes the build folder to the GitHub Pages branch.</li>
+<li>GitHub Pages assets are automatically refreshed.</li>
+</ol>
+<h2 id="why">Why <a class="direct-link" href="#why" aria-hidden="true">#</a></h2>
+<ul>
+<li>Reuse the label system to manage the post tags (easy to assign, rename on GitHub).</li>
+<li>Articles are updated automatically as soon as I finish editing the corresponding issues.</li>
+<li>Image upload is simple as copy-pasting an image on GitHub</li>
+<li>No web server, no file bucket, no CDN to manage.</li>
+<li>The articles are editable in the browser.</li>
+<li>Bonus: No vendor lock-in? I feel like I could easily change the Docker/scripting part (used by GH Actions) or the hosting (S3 + CF) or the static site generator or without too much trouble. I can always return to markdown files if GitHub issues are a bad idea.</li>
+<li>Bonus: Giving editing permissions could be as simple as giving adding a collaborator to the repository.</li>
+</ul>
+<h2 id="how">How <a class="direct-link" href="#how" aria-hidden="true">#</a></h2>
+<ul>
+<li>
+<p>[x] Start from <a href="https://github.com/11ty/eleventy-base-blog">https://github.com/11ty/eleventy-base-blog</a> 🐣</p>
+</li>
+<li>
+<p>[x] Pull issues via the GraphQL API 💥 <a href="https://github.com/pioug/blog/blob/master/gulpfile.js#L9">https://github.com/pioug/blog/blob/master/gulpfile.js#L9</a></p>
+</li>
+<li>
+<p>[x] Deploy static assets in workflows 👨‍🚀 <a href="https://github.com/pioug/blog/blob/master/.github/main.workflow">https://github.com/pioug/blog/blob/master/.github/main.workflow</a></p>
+</li>
+<li>
+<p>[x] Run updates via GitHub Actions 🤖 <a href="https://github.com/JamesIves/github-pages-deploy-action">https://github.com/JamesIves/github-pages-deploy-action</a></p>
+</li>
+</ul>
+<h2 id="test">Test <a class="direct-link" href="#test" aria-hidden="true">#</a></h2>
+<ul>
+<li>[x] Support code snippet 👨‍💻</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="highlight-line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Verify nice markdown support"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<ul>
+<li>[x] Include image uploaded via GitHub 🎆</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/3654180/61991568-8381bc00-b084-11e9-966c-58c9117989fe.png" alt="Totakeke"></p>
+
+
+    </main>
+
+    <nav>
+      <h2>Navigation</h2>
+      <ul><li class="nav-item"><a href="/blog/">Home</a></li><li class="nav-item"><a href="/blog/about/">About</a></li></ul>
+    </nav>
+  </body>
+</html>
