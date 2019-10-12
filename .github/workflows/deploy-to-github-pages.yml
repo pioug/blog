@@ -1,0 +1,21 @@
+on: [issues, push]
+name: Deploy to GitHub Pages
+jobs:
+  build:
+    name: Run deploy.sh for embed apps
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Get posts from GitHub Issues
+        uses: ./.github/actions/setup
+        env:
+          GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
+        with:
+          args: npx gulp github:issues
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          BUILD_SCRIPT: npm ci && npm run build
+          FOLDER: _site
