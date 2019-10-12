@@ -21,7 +21,7 @@
 
 1. Create (or edit) an issue in the GitHub repository.
 2. GitHub Actions receives an `issues` event.
-3. A workflow fetches all issues in the repository using the GraphQL API of GitHub then uses Eleventy to compile the Markdown files using the body of the issues. The front matter is built from the title, tags and creation date of the issues.
+3. A workflow fetches all issues labelled as `posts` in the repository using the GraphQL API of GitHub then uses Eleventy to compile the Markdown files using the body of the issues. The front matter is built from the title, tags and creation date of the issues.
 4. Another workflow git-commits and git-pushes the build folder to the GitHub Pages branch.
 5. GitHub Pages assets are automatically refreshed.
 
